@@ -21,13 +21,7 @@ class TranslationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViews();
-
-        $this->registerRoutes();
-
         $this->publishConfiguration();
-
-        $this->publishAssets();
 
         $this->loadMigrations();
 
@@ -55,24 +49,6 @@ class TranslationServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function loadViews()
-    {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'translation');
-
-        $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/translation'),
-        ]);
-    }
-
-    /**
-     * Register package routes.
-     *
-     * @return void
-     */
-    private function registerRoutes()
-    {
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-    }
 
     /**
      * Publish package configuration.
@@ -94,18 +70,6 @@ class TranslationServiceProvider extends ServiceProvider
     private function mergeConfiguration()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/translation.php', 'translation');
-    }
-
-    /**
-     * Publish package assets.
-     *
-     * @return void
-     */
-    private function publishAssets()
-    {
-        $this->publishes([
-            __DIR__.'/../public/assets' => public_path('vendor/translation'),
-        ], 'assets');
     }
 
     /**
