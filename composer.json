@@ -20,6 +20,11 @@
             "NiNaCoder\\Translation\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "NiNaCoder\\Translation\\Tests\\": "tests"
+        }
+    },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
